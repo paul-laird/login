@@ -16,5 +16,10 @@ namespace login
         {
             InitializeComponent();
         }
+
+        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new LoginDialog().ShowDialog();           
+        }
     }
 }
