@@ -13,9 +13,13 @@ namespace login
         static LoginData l=new LoginData();
         public static bool processLogin(string u, string p)
         {
-            string [] userInfo=l.getLogin(u);
-            string hash = userInfo[1];
-            bool success = Crypto.VerifyHashedPassword(hash, p);
+            bool success = false;
+            string[] userInfo=l.getLogin(u);
+            if (userInfo != null)
+            {
+                string hash = userInfo[1];
+                success = Crypto.VerifyHashedPassword(hash, p);
+            }
             return success;
         }
     }

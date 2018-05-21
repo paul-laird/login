@@ -11,13 +11,13 @@ namespace DataAccess
     class LoginData:DAO
     {
         public void addLogin(string u, string p) { }
+
+
         public string[] getLogin(string u) {
             SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.UserLogin "+ //, openConnection());// +
                 "WHERE username=@user;", openConnection());
             cmd.Parameters.AddWithValue("@user", u);
             SqlDataReader rdr = cmd.ExecuteReader();
-            if (!rdr.HasRows)
-                MessageBox.Show("Error");
             if (rdr.Read())
             {
                 string[] s1 = new string[2];
